@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bilicki Máté - Önéletrajz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #ffffff;
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --navy: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f1f5f9;
+      color: var(--slate-800);
+      line-height: 1.5;
+      padding: 40px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Main Resume Wrapper */
+    .resume-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 42px 48px 36px;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0284c7, #38bdf8, #818cf8);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .avatar-block {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .avatar-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 26px;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    .tagline {
+      font-size: 15px;
+      color: #38bdf8;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2e8f0;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 9999px;
+    }
+
+    /* Main Grid */
+    .resume-body {
+      display: grid;
+      grid-template-columns: 1fr 310px;
+      gap: 36px;
+      padding: 40px 48px;
+    }
+
+    /* Headings */
+    .section-title {
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background-color: var(--border);
+    }
+
+    /* Timeline & Cards */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 6px;
+      width: 2px;
+      background: #e2e8f0;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 26px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -24px;
+      top: 10px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .edu-card {
+      background: var(--slate-50);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    /* Corvinus Official Logo Container */
+    .corvinus-logo-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      padding: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+    }
+
+    .corvinus-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Standard School Logo */
+    .school-logo-wrap {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    .edu-content {
+      flex: 1;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4px;
+      gap: 10px;
+    }
+
+    .school-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .edu-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 3px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .major-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--slate-600);
+      margin-bottom: 8px;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .pill {
+      font-size: 12px;
+      font-weight: 600;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--slate-800);
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .pill-icon {
+      color: var(--primary);
+    }
+
+    /* Right Sidebar Modules */
+    .sidebar-block {
+      background: var(--slate-50);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 22px;
+    }
+
+    .sidebar-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .block-heading {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--slate-600);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Clean Language List (No Flags) */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+
+    .lang-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .lang-name {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .lang-level {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+
+    /* Skills / Focus Tag Cloud */
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--slate-800);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      margin-right: 4px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .skill-icon {
+      color: var(--primary);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+      }
+      .resume-wrapper {
+        border: none;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      header {
+        background: #0f172a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .edu-card, .sidebar-block {
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resume-body {
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding: 30px 24px;
+      }
+      .resume-body {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Resume Card -->
+  <div class="resume-wrapper">
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <div class="avatar-block">
+          <div class="avatar-icon">BM</div>
+          <div>
+            <h1>Bilicki Máté</h1>
+            <div class="tagline">Gazdasági és pénzügyi matematikai elemzés (GPME) hallgató</div>
+          </div>
+        </div>
+        <div class="header-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          Budapest / Szeged
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="resume-body">
+      
+      <!-- Bal oszlop: Tanulmányok -->
+      <main>
+        <div class="section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+          Tanulmányok
+        </div>
+        
+        <div class="timeline">
+          
+          <!-- Corvinus Egyetem hivatalos logóval -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="edu-card">
+              <div class="corvinus-logo-wrap" title="Budapesti Corvinus Egyetem">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Corvinus_eng_logo.jpg/320px-Corvinus_eng_logo.jpg" 
+                     alt="Corvinus Egyetem Logó"
+                     onerror="this.onerror=null; this.src='https://www.uni-corvinus.hu/contents/uploads/2020/11/corvinus_arculat_2.png';">
+              </div>
+              <div class="edu-content">
+                <div class="edu-header">
+                  <div class="school-name">Budapesti Corvinus Egyetem</div>
+                  <div class="edu-date">2026 – Jelenleg</div>
+                </div>
+                <div class="major-title">Gazdasági és pénzügyi matematikai elemzés (GPME)</div>
+                <div class="pill-list">
+                  <span class="pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    1. évfolyam
+                  </span>
+                  <span class="pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Kvantitatív elemző fókusz
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SZTE Gyakorló Gimnázium -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="edu-card">
+              <div class="school-logo-wrap" title="SZTE Gyakorló Gimnázium">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21V7l7-4 7 4v14"></path>
+                  <path d="M9 10h1"></path>
+                  <path d="M14 10h1"></path>
+                  <path d="M9 14h1"></path>
+                  <path d="M14 14h1"></path>
+                </svg>
+              </div>
+              <div class="edu-content">
+                <div class="edu-header">
+                  <div class="school-name">SZTE Gyakorló Gimnázium</div>
+                  <div class="edu-date">Szeged</div>
+                </div>
+                <div class="major-title">Gimnáziumi érettségi bizonyítvány</div>
+                <div class="pill-list">
+                  <span class="pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Emelt szintű matematika
+                  </span>
+                  <span class="pill">
+                    <svg class="pill-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Emelt szintű digitális kultúra
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <!-- Jobb oszlop: Nyelvek & Területek -->
+      <aside>
+        
+        <!-- Nyelvismeret (Zászlók nélkül, letisztultan) -->
+        <div class="sidebar-block">
+          <div class="block-heading">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            Nyelvismeret
+          </div>
+
+          <div class="lang-item">
+            <span class="lang-name">Magyar</span>
+            <span class="lang-level">Anyanyelv</span>
+          </div>
+
+          <div class="lang-item">
+            <span class="lang-name">Angol</span>
+            <span class="lang-level">B2 Középfok</span>
+          </div>
+
+          <div class="lang-item">
+            <span class="lang-name">Francia</span>
+            <span class="lang-level">B2 Középfok</span>
+          </div>
+        </div>
+
+        <!-- Kiemelt területek ikonokkal -->
+        <div class="sidebar-block">
+          <div class="block-heading">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            Kiemelt területek
+          </div>
+          <div style="margin-top: 4px;">
+            <span class="skill-tag">
+              <svg class="skill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19h16M4 5h16M14 12H4M20 12h-2"></path></svg>
+              Matematikai elemzés
+            </span>
+            <span class="skill-tag">
+              <svg class="skill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              Digitális kultúra
+            </span>
+            <span class="skill-tag">
+              <svg class="skill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              Analitikus gondolkodás
+            </span>
+            <span class="skill-tag">
+              <svg class="skill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Pénzügyi modellezés
+            </span>
+            <span class="skill-tag">
+              <svg class="skill-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              Informatikai alapismeretek
+            </span>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+</body>
+</html>
